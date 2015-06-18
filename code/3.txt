@@ -1,0 +1,22 @@
+Longest Substring Without Repeating Characters
+
+Given a string, find the length of the longest substring without repeating characters. For example, the longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3. For "bbbbb" the longest substring is "b", with the length of 1.
+
+class Solution{
+	public:
+	    int lengthOfLongestSubstring(string s){
+	        std::map<char, int> map;
+	        int start = 0, res = 0;
+	        for(int i=0; i<s.size(); i++){
+	            if(map.find(s[i]) != map.end())  start = std::max(start, map.find(s[i])->second + 1);
+	            map[s[i]] = i;
+                res = std::max(res, i-start+1);
+	        }
+	        return res;
+	    }
+};
+
+
+The inituitive idea is O(n), which use 2 for loop. The outer for loop is iteration of each character of string, the inner for loop is the longest substring with a certain start. 
+
+Then we see whether we could make some skip and simplify the algo. For example, 'a b c d c e', when we come across the second c, with previous method, we shall start from b, but it's obviously that 'a b c d' is  larger than 'b c d', therefore, we don't have to continue from b. So just start from the character next to the repeating one, the 'd'. By this, we could solve it in only one for loop, because it doesn't have to go back again. The time is O(n) and space is O(n)
