@@ -9,6 +9,10 @@ function leet6(){code_num = 'code/6.txt'; document.getElementById("show_part").d
 function leet7(){code_num = 'code/7.txt'; document.getElementById("show_part").data=code_num;}
 function leet8(){code_num = 'code/8.txt'; document.getElementById("show_part").data=code_num;}
 function leet9(){code_num = 'code/9.txt'; document.getElementById("show_part").data=code_num;}
+function leet10(){code_num = 'code/10.txt'; document.getElementById("show_part").data=code_num;}
+function leet11(){code_num = 'code/11.txt'; document.getElementById("show_part").data=code_num;}
+function leet12(){code_num = 'code/12.txt'; document.getElementById("show_part").data=code_num;}
+
 
 
 

@@ -1,0 +1,38 @@
+Regular Expression Matching 
+
+Implement regular expression matching with support for '.' and '*'.
+
+'.' Matches any single character.
+'*' Matches zero or more of the preceding element.
+
+The matching should cover the entire input string (not partial).
+
+The function prototype should be:
+bool isMatch(const char *s, const char *p)
+
+Some examples:
+isMatch("aa","a") → false
+isMatch("aa","aa") → true
+isMatch("aaa","aa") → false
+isMatch("aa", "a*") → true
+isMatch("aa", ".*") → true
+isMatch("ab", ".*") → true
+isMatch("aab", "c*a*b") → true
+
+class Solution{
+	public:
+	    bool isMatch(string s, string p){
+            return check(s,0,p,0);
+	    }
+
+	public:
+	    bool check(string s, int i, string p, int j){
+	        if(j == p.size())  return i == s.size();
+	        else if(i == s.size())  return j == p.size() || p[j+1]=='*' && check(s,i,p,j+2);
+	        else if(p[j+1] == '*')  return (s[i]==p[j] || p[j]=='.') && check(s,i+1,p,j) || check(s,i,p,j+2);
+	        else  return (s[i]==p[j] || p[j] == '.') && check(s,i+1,p,j+1);
+	    }
+};
+
+
+The bullet is situation of p[j+1]=='*'. If the next char is *, it could compare currert char or skip p for 2 char. If next char is not *, it has to compare current char.
