@@ -12,6 +12,23 @@ function leet9(){code_num = 'code/9.txt'; document.getElementById("show_part").d
 function leet10(){code_num = 'code/10.txt'; document.getElementById("show_part").data=code_num;}
 function leet11(){code_num = 'code/11.txt'; document.getElementById("show_part").data=code_num;}
 function leet12(){code_num = 'code/12.txt'; document.getElementById("show_part").data=code_num;}
+function leet13(){code_num = 'code/13.txt'; document.getElementById("show_part").data=code_num;}
+function leet14(){code_num = 'code/14.txt'; document.getElementById("show_part").data=code_num;}
+function leet15(){code_num = 'code/15.txt'; document.getElementById("show_part").data=code_num;}
+
+//document.getElementById("all_list").style.display='none';
+document.getElementById("20").style.display='none';
+
+function show10(){
+	document.getElementById("20").style.display='none';
+	document.getElementById("10").style.display='block';
+//	document.getElementById("all_list").style.display='block';
+}
+function show20(){
+	document.getElementById("10").style.display='none';
+	document.getElementById("20").style.display='block';
+//	document.getElementById("all_list").style.display='block';
+}
 
 
 

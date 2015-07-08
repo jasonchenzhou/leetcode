@@ -1,0 +1,37 @@
+Letter Combinations of a Phone Number
+
+Given a digit string, return all possible letter combinations that the number could represent.
+
+A mapping of digit to letters (just like on the telephone buttons) is given below.
+
+Input:Digit string "23"
+Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+
+
+class Solution{
+	public:
+	    vector<string> letterCombinations(string digits){
+            vector<string>  res;
+            if(digits.size() == 0)  return res;
+            const string map[] = {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+            string s;
+            backtrace(digits, map, res, s);
+            return res;
+	    }
+
+	    void backtrace(const string digits, const string map[], vector<string>& res, string& s){
+            int i = s.size();
+	        if(i == digits.size()){
+	            res.push_back(s);
+	        }
+	        else{
+	            for(auto cur : map[(int)(digits[i]-'0')]){
+	                s.push_back(cur);
+	                backtrace(digits, map, res, s);
+	                s.pop_back();
+	            }
+	        }
+	    }
+};
+
+a typical backtrace problem. do it -> enter recursion -> undo it
